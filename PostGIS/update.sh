@@ -32,7 +32,7 @@ versions=("${versions[@]%/}")
 fetch_postgres_image_version() {
     local suite="$1";
     local item="$2";
-	curl -SsL "https://registry.hub.docker.com/v2/repositories/postgis/postgis/tags/?name=${suite}&ordering=last_updated&" | \
+	curl -SsL "https://registry.hub.docker.com/v2/repositories/nickblah/postgis/tags/?name=${suite}&ordering=last_updated&" | \
 	  jq -c ".results[] | select( .name | match(\"^${suite}-[0-9.]+$\"))" | \
 	  jq -r ".${item}" | \
 	  sort -r | \

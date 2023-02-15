@@ -5,7 +5,7 @@ for all available PostgreSQL + PostGIS versions (11 to 14) to be used as
 operands with the [CloudNativePG operator](https://cloudnative-pg.io)
 for Kubernetes.
 
-These images are built on top of the [PostGIS image](https://hub.docker.com/r/postgis/postgis)
+These images are built on top of the [PostGIS image](https://hub.docker.com/r/nickblah/postgis)
 (Debian version), by adding the following software:
 
 - Barman Cloud
