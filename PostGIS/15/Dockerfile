@@ -20,17 +20,20 @@ FROM nickblah/postgis:15.2-postgis-3
 LABEL name="PostgreSQL + PostGIS Container Images" \
       vendor="The CloudNativePG Contributors" \
       version="${PG_VERSION}" \
-      release="25" \
+      release="55" \
       summary="PostgreSQL + PostGIS Container images." \
       description="This Docker image contains PostgreSQL, PostGIS and Barman Cloud based on Postgres 15-3.3."
 
 COPY requirements.txt /
 
-# Install pgaudit
+# Install additional extensions
 RUN set -xe; \
 	apt-get update; \
 	apt-get install -y --no-install-recommends \
-	    "postgresql-${PG_MAJOR}-pgaudit" ;\
+		"postgresql-${PG_MAJOR}-pgaudit" \
+		"postgresql-${PG_MAJOR}-pg-failover-slots" \
+		"postgresql-${PG_MAJOR}-pgrouting" \
+	; \
 	rm -fr /tmp/* ; \
 	rm -rf /var/lib/apt/lists/*;
 
