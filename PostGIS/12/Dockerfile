@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-FROM nickblah/postgis:12-bullseye-postgis-3.3.3
+FROM nickblah/postgis:12.9-postgis-3
 
 # Do not split the description, otherwise we will see a blank space in the labels
 LABEL name="PostgreSQL + PostGIS Container Images" \
@@ -22,7 +22,7 @@ LABEL name="PostgreSQL + PostGIS Container Images" \
       version="${PG_VERSION}" \
       release="1" \
       summary="PostgreSQL + PostGIS Container images." \
-      description="This Docker image contains PostgreSQL, PostGIS and Barman Cloud based on Postgres 12-bullseye-postgis-3.3.3."
+      description="This Docker image contains PostgreSQL, PostGIS and Barman Cloud based on Postgres 12.9-postgis-3."
 
 COPY requirements.txt /
 
