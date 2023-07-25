@@ -14,15 +14,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-FROM nickblah/postgis:13.10-bullseye-postgis-3
+FROM nickblah/postgis:13-bullseye-postgis-3.3.3
 
 # Do not split the description, otherwise we will see a blank space in the labels
 LABEL name="PostgreSQL + PostGIS Container Images" \
       vendor="The CloudNativePG Contributors" \
       version="${PG_VERSION}" \
-      release="64" \
+      release="1" \
       summary="PostgreSQL + PostGIS Container images." \
-      description="This Docker image contains PostgreSQL, PostGIS and Barman Cloud based on Postgres 13-3.3."
+      description="This Docker image contains PostgreSQL, PostGIS and Barman Cloud based on Postgres 13-bullseye-postgis-3.3.3."
 
 COPY requirements.txt /
 
@@ -51,5 +51,5 @@ RUN set -xe; \
 	rm -rf /var/lib/apt/lists/*;
 
 # Change the uid of postgres to 26
-RUN usermod -u 26 postgres
-USER 26
+# RUN usermod -u 26 postgres
+# USER 26
