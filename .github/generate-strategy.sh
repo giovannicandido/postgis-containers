@@ -44,7 +44,7 @@ for version in "${postgis_versions[@]}"; do
 
 	# Read versions from the definition file
 	versionFile="${version}/.versions.json"
-	postgisVersion=$(jq -r '.POSTGIS_IMAGE_VERSION | split("-") | .[1]' "${versionFile}")
+	postgisVersion=$(jq -r '.POSTGIS_IMAGE_VERSION | split(".") | .[1] | split("-") | .[0]' "${versionFile}")
 	releaseVersion=$(jq -r '.IMAGE_RELEASE_VERSION' "${versionFile}")
 
 	# Initial aliases are:
