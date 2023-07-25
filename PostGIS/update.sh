@@ -33,7 +33,7 @@ fetch_postgres_image_version() {
     local suite="$1";
     local item="$2";
 	curl -SsL "https://registry.hub.docker.com/v2/repositories/nickblah/postgis/tags/?name=${suite}&ordering=last_updated&page_size=100" | \
-	  jq -c ".results[] | select( .name | match(\"${suite}[0-9.]+-postgis-3$\"))" | \
+	  jq -c ".results[] | select( .name | match(\"${suite}[0-9.]+-bullseye-postgis-3$\"))" | \
 	  jq -r ".${item}" | \
 	  sort -r | \
 	  head -n1
